@@ -72,7 +72,7 @@ class Items(){
         println("Please enter the pump you are on: ")
         val pumpnumber = readLine().toString()
         Tranzaction(userid).item.add("Gass")
-        println("Please select an option how much you want to pay: "
+        println("Please select an option how much you want to pay: \n"
                 + "1. A fix amount\n"
                 + "2. The remader after buying someother items ")
         val gas_option = readLine().toString().toInt()
@@ -141,6 +141,7 @@ class Receipt(){
             }
             else {
                 println("That amount of gas you are get is $" + (totals - itemtotals))
+                Tranzaction(userid).itemscost.add(totals - itemtotals)
                 return totals
             }
         }
@@ -156,6 +157,12 @@ class Receipt(){
 
     }
     fun printreipt(userid: String, amount: Double, paytype: Int){
+        val itemsize = Tranzaction(userid).item.size
+        for (i in 0..itemsize-1 ){
+            println(Tranzaction(userid).item[i]+ "         " + Tranzaction(userid).itemscost[i]  )
+        }
+        println("Total" + amount)
+        println("You payed with "+ paytype)
 
     }
 
