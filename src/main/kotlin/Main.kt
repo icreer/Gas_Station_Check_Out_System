@@ -75,7 +75,7 @@ class Items(){
             val gasamount = readLine().toString().toDouble()
             tranzaction(userid).itemscost.add(gasamount)
             println("You are putting " + gasamount + " to pump " + pumpnumber)
-            tranzaction(userid).itemtotal = tranzaction(userid).itemtotal + gasamount
+            tranzaction(userid).itemtotal = tranzaction(userid).itemtotal + gasamount + 1
             return true
         }
         else if (gas_option == 2){
