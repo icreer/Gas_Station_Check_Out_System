@@ -3,7 +3,8 @@
 
 This program is a console check out system. The main focus here is a self check out at a gas station.
 Some of the biggest feature are the addition of that you can enter what your total is and buy other items ,and then it will put the remainder 
-on the pump you told it to do.
+on the pump you told it to do. This also is build so that someone could add a database in the future to make the item 
+things working without random number.  
 
 
 [Software Demo Video](http://youtube.link.goes.here)
@@ -25,4 +26,4 @@ on the pump you told it to do.
 {Make a list of things that you need to fix, improve, and add in the future.}
 * Attach to a database for items and prices instead 
 * Develop as an application not just a console project
-* Clean up println lines
+* Getting the data class working

@@ -11,7 +11,7 @@ fun main(args: Array<String>) {
 
     var havePaid = true
     var CTotal = 0.0
-    var paytype = 0
+    var paytype = ""
     while (havePaid){
         println("Please tell me the type of item you want to buy: \n"
         + " 1. Gas \n"
@@ -49,8 +49,8 @@ fun main(args: Array<String>) {
 data class Tranzaction( val userID : String ){
     var total : Double = 0.0
     var itemtotal : Double = 0.0
-    val itemscost: MutableList<Double> = mutableListOf()
-    val item : MutableList<String> = mutableListOf()
+    var itemscost: MutableList<Double> = mutableListOf()
+    var item : MutableList<String> = mutableListOf()
 }
 
 class Main(){
@@ -146,22 +146,35 @@ class Receipt(){
             }
         }
     }
-    fun paymenttype( userid: String) :Int{
+    fun paymenttype( userid: String) :String{
         println("Please select your payment type:\n"
                 + "1. Credit / Debit\n"
                 + "2. Cash\n"
                 + "3. Gift Card\n"
                 + "4. Check\n")
         val payt = readLine().toString().toInt()
-        return payt
+        var returnstring : String  = ""
+        if (payt == 1){
+            returnstring = "Credit / Debit"
+        }
+        else if (payt == 2){
+            returnstring = "Cash"
+        }
+        else if (payt == 3){
+            returnstring = "Gift Card"
+        }
+        else if (payt == 4){
+            returnstring = "Check"
+        }
 
+        return returnstring
     }
-    fun printreipt(userid: String, amount: Double, paytype: Int){
+    fun printreipt(userid: String, amount: Double, paytype: String){
         val itemsize = Tranzaction(userid).item.size
         for (i in 0..itemsize-1 ){
             println(Tranzaction(userid).item[i]+ "         " + Tranzaction(userid).itemscost[i]  )
         }
-        println("Total" + amount)
+        println("Total: " + amount)
         println("You payed with "+ paytype)
 
     }
